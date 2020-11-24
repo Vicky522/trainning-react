@@ -9,6 +9,7 @@ import HandlEvent from "./HandleEvent/HandlEvent";
 import DemoState from "./DemoState/DemoState";
 import BaiTapChonXe from "./DemoState/BaiTapChonXe/BaiTapChonXe";
 import RenderWithMap from "./RenderWithMap/RenderWithMap";
+import BaiTapThucHanhLayout from "./BaiTapThucHanhLayout/BaiTapThucHanhLayout";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       {/* <HandlEvent /> */}
       {/* <DemoState /> */}
       {/* <BaiTapChonXe /> */}
-      <RenderWithMap />
+      {/* <RenderWithMap /> */}
+      <BaiTapThucHanhLayout />
     </div>
   );
 }
