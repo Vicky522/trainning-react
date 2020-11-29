@@ -1,21 +1,12 @@
 import React, { Component } from "react";
 
-export default class BaiTapChonKinh extends Component {
-  state = {
-    srcImg: "./glassesImage/g1.jpg",
-  };
-
-  changeClasses = (newClasses) => {
-    this.setState = { srcImge: `./glassesImage/${newClasses}.jpg` };
-  };
-
-  // listClasses
+let // listClasses
   arrProduct = [
     {
       id: 1,
       price: 30,
       name: "GUCCI G8850U",
-      url: "./glassesImage/v1.png",
+      url: "./img/glassesImage/v1.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
@@ -24,7 +15,7 @@ export default class BaiTapChonKinh extends Component {
       id: 2,
       price: 50,
       name: "GUCCI G8759H",
-      url: "./glassesImage/v2.png",
+      url: "./img/glassesImage/v2.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
@@ -33,7 +24,7 @@ export default class BaiTapChonKinh extends Component {
       id: 3,
       price: 30,
       name: "DIOR D6700HQ",
-      url: "./glassesImage/v3.png",
+      url: "./img/glassesImage/v3.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
@@ -42,7 +33,7 @@ export default class BaiTapChonKinh extends Component {
       id: 4,
       price: 30,
       name: "DIOR D6005U",
-      url: "./glassesImage/v4.png",
+      url: "./img/glassesImage/v4.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
@@ -51,7 +42,7 @@ export default class BaiTapChonKinh extends Component {
       id: 5,
       price: 30,
       name: "PRADA P8750",
-      url: "./glassesImage/v5.png",
+      url: "./img/glassesImage/v5.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
@@ -60,7 +51,7 @@ export default class BaiTapChonKinh extends Component {
       id: 6,
       price: 30,
       name: "PRADA P9700",
-      url: "./glassesImage/v6.png",
+      url: "./img/glassesImage/v6.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
@@ -69,7 +60,7 @@ export default class BaiTapChonKinh extends Component {
       id: 7,
       price: 30,
       name: "FENDI F8750",
-      url: "./glassesImage/v7.png",
+      url: "./img/glassesImage/v7.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
@@ -78,7 +69,7 @@ export default class BaiTapChonKinh extends Component {
       id: 8,
       price: 30,
       name: "FENDI F8500",
-      url: "./glassesImage/v8.png",
+      url: "./img/glassesImage/v8.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
@@ -87,28 +78,41 @@ export default class BaiTapChonKinh extends Component {
       id: 9,
       price: 30,
       name: "FENDI F4300",
-      url: "./glassesImage/v9.png",
+      url: "./img/glassesImage/v9.png",
       desc:
         "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
     },
   ];
+export default class BaiTapChonKinh extends Component {
+  state = {
+    srcImg: "./img/glassesImage/v1.png",
+    name: "GUCCI G8850U",
+    desc:
+      "Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ",
+  };
 
-  renderClassesWithMap = () => {
-    const arrJSX = this.arrProduct.map((product, index) => {
+  changeClasses = (idClasses) => {
+    this.setState({ srcImg: `./img/glassesImage/v${idClasses}.png` });
+  };
+
+  renderClasses = () => {
+    return arrProduct.map((product, index) => {
       return (
         <div className="col-2 " key={index}>
           <img
             src={product.url}
             className="w-50 m-2 p-1 border border-dark"
             onClick={() => {
-              this.changeClasses(product.url);
+              this.changeClasses(product.id);
+              this.setState({
+                name: product.name,
+                desc: product.desc,
+              });
             }}
           />
         </div>
       );
     });
-
-    return arrJSX;
   };
 
   render() {
@@ -122,28 +126,25 @@ export default class BaiTapChonKinh extends Component {
           <div className="row">
             <div className="col-6">
               <div className="changeClasses">
-                <img src="./glassesImage/model.jpg" className="w-50"></img>
-                <img src={this.state.srcImg} />
+                <img src="./img/glassesImage/model.jpg" className="w-50"></img>
+                <img src={this.state.srcImg} className="w-50" />
                 <div
-                  className="title "
+                  className="title w-50"
                   style={{ backgroundColor: "orange", opacity: 0.8 }}
                 >
-                  <h3 className="text-primary">FENDI F8750</h3>
-                  <p className="text-white">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Inventore, est.
-                  </p>
+                  <h3 className="text-primary">{this.state.name}</h3>
+                  <p className="text-white">{this.state.desc}</p>
                 </div>
               </div>
             </div>
 
             <div className="col-6">
-              <img src="./glassesImage/model.jpg" className="w-50"></img>
+              <img src="./img/glassesImage/model.jpg" className="w-50"></img>
             </div>
           </div>
 
           <div className="container">
-            <div className="bg-light row">{this.renderClassesWithMap()}</div>
+            <div className="bg-light row">{this.renderClasses()}</div>
           </div>
         </div>
       </div>

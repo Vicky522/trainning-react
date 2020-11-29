@@ -27,10 +27,10 @@ function App() {
       {/* <BaiTapChonXe /> */}
       {/* <RenderWithMap /> */}
       {/* <BaiTapThucHanhLayout /> */}
-      {/* <BaiTapChonKinh /> */}
+      <BaiTapChonKinh />
       {/* <BaiTapRenderDanhSachPhim /> */}
       {/* <DemoProps /> */}
-      <ProductListRCC />
+      {/* <ProductListRCC /> */}
     </div>
   );
 }
