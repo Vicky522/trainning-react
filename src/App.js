@@ -15,6 +15,7 @@ import BaiTapRenderDanhSachPhim from "./RenderWithMap/BaiTapRenderDanhSachPhim";
 import DemoProps from "./Props/DemoProps";
 import ProductList from "./components/BaiTapLayout/ProductList";
 import ProductListRCC from "./Props/ProductListRCC";
+import PropsWithEvent from "./Props/PropsWithEvent";
 
 function App() {
   return (
@@ -30,7 +31,8 @@ function App() {
       {/* <BaiTapChonKinh /> */}
       {/* <BaiTapRenderDanhSachPhim /> */}
       {/* <DemoProps /> */}
-      <ProductListRCC />
+      {/* <ProductListRCC /> */}
+      <PropsWithEvent />
     </div>
   );
 }
