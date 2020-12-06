@@ -1,5 +1,5 @@
 const stateDefault = {
-  datCuoc: true,
+  datCuoc: false, //true: tai, false: xiu
   soBanThang: 0,
   soBanChoi: 0,
   mangXucXac: [
