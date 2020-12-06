@@ -8,6 +8,7 @@ export default class Modal extends Component {
     return tongTien.toLocaleString();
   };
   render() {
+    const { gioHang } = this.props;
     return (
       <>
         <div>
@@ -44,7 +45,7 @@ export default class Modal extends Component {
                       <td>Thành tiền</td>
                     </tr>
 
-                    {this.props.cart.map((product, index) => {
+                    {gioHang.map((product, index) => {
                       return (
                         <tr key={index}>
                           <td>{product.maSP}</td>
@@ -71,15 +72,15 @@ export default class Modal extends Component {
                               -
                             </button>
                           </td>
-                          <td>{product.soLuong}</td>
+
                           <td>{product.donGia.toLocaleString()}</td>
                           <td>{product.soLuong * product.donGia}</td>
                           <td>
                             <button
                               className="btn btn-danger"
-                              onClick={() =>
-                                this.props.deleteItem(product.maSP)
-                              }
+                              onClick={() => {
+                                this.props.deleteItem(product.maSP);
+                              }}
                             >
                               Xoa
                             </button>
