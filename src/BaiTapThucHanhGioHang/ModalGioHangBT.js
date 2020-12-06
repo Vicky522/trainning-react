@@ -80,7 +80,11 @@ export default class ModalGioHangBT extends Component {
                               </td>
 
                               <td>{product.donGia.toLocaleString()}</td>
-                              <td>{product.soLuong * product.donGia}</td>
+                              <td>
+                                {(
+                                  product.soLuong * product.donGia
+                                ).toLocaleString()}
+                              </td>
                               <td>
                                 <button
                                   className="btn btn-danger"
@@ -99,9 +103,12 @@ export default class ModalGioHangBT extends Component {
                             <td colSpan="5"></td>
                             <td>Tổng tiền</td>
                             <td>
-                              {gioHang.reduce((tongTien, spGH, index) => {
-                                return (tongTien += spGH.soLuong * spGH.donGia);
-                              }, 0)}
+                              {gioHang
+                                .reduce((tongTien, spGH, index) => {
+                                  return (tongTien +=
+                                    spGH.soLuong * spGH.donGia);
+                                }, 0)
+                                .toLocaleString()}
                             </td>
                           </tr>
                         </tfoot>

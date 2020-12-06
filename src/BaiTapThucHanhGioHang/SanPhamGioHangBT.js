@@ -8,7 +8,7 @@ export default class SanPhamGioHangBT extends Component {
         <img className="card-img-top" src={sanPham.hinhAnh} alt />
         <div className="card-body">
           <h4 className="card-title">{sanPham.tenSP}</h4>
-          <p className="card-text">{sanPham.donGia}</p>
+          <p className="card-text">{sanPham.donGia.toLocaleString()}</p>
         </div>
         <div className="card-footer">
           <button
