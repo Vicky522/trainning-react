@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SanPham from "./SanPham";
-import dsSanPham from "../Props/data/data.json";
+import dsSanPham from "../../Props/data/data.json";
 
 export default class DanhSachSanPham extends Component {
   renderSanPham = () => {
