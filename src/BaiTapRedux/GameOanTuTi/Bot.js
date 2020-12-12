@@ -6,9 +6,9 @@ class Bot extends Component {
   render() {
     return (
       <div>
-        {" bot"}
-
-        <img src={this.props.bot.hinhAnh} className={`${style.keoBuaBao} `} />
+        <div className="thinker">
+          <img src={this.props.bot.hinhAnh} className={`${style.keoBuaBao} `} />
+        </div>
         <div className={`${style["speech-bubble"]}`}></div>
         <img
           src="./img/gameOanTuTi/playerComputer.png"

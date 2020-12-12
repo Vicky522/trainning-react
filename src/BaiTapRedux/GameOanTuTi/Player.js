@@ -14,7 +14,7 @@ class Player extends Component {
         <button
           style={border}
           onClick={() => {
-            this.props.datCuoc();
+            this.props.datCuoc(item.ma);
           }}
         >
           <img key={index} src={item.hinhAnh} alt={item.hinhAnh} />

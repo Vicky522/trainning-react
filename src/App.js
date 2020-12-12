@@ -41,8 +41,8 @@ function App() {
       {/* <BaiTapThucHanhGioHang /> */}
       {/* <BaiTapGioHangRedux /> */}
       {/* <BaiTapGameXucXac /> */}
-      {/* <GameOanTuTi /> */}
-      <BaiTapQuanLySinhVien />
+      <GameOanTuTi />
+      {/* <BaiTapQuanLySinhVien /> */}
     </div>
   );
 }
