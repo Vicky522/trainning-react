@@ -4,7 +4,7 @@ import { combineReducers, createStore } from "redux";
 // import stateGioHang
 import { GioHangReducer } from "../redux/GioHangReducer";
 import { BaiTapGameXucXacReducer } from "../redux/BaiTapGameXucXacReducer";
-import { GameOanTuTiReducer } from "./GameOanTuTi";
+import { GameOanTuTiReducer } from "./GameOanTuTiReducer";
 
 const rootReducer = combineReducers({
   // cac state sau nay khai bao tai day
