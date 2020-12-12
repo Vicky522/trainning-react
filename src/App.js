@@ -19,6 +19,8 @@ import PropsWithEvent from "./Props/PropsWithEvent";
 import BaiTapGioHangRedux from "./BaiTapRedux/BaiTapGioHang/BaiTapGioHangRedux";
 import BaiTapGameXucXac from "./BaiTapRedux/BaiTapGameXucXac/BaiTapGameXucXac";
 import BaiTapThucHanhGioHang from "./BaiTapThucHanhGioHang/BaiTapThucHanhGioHang";
+import GameOanTuTi from "./BaiTapRedux/GameOanTuTi/GameOanTuTi";
+import BaiTapQuanLySinhVien from "./Form/BaiTapQuanLySinhVien";
 
 function App() {
   return (
@@ -39,6 +41,8 @@ function App() {
       {/* <BaiTapThucHanhGioHang /> */}
       {/* <BaiTapGioHangRedux /> */}
       {/* <BaiTapGameXucXac /> */}
+      {/* <GameOanTuTi /> */}
+      <BaiTapQuanLySinhVien />
     </div>
   );
 }

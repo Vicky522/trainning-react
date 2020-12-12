@@ -1,0 +1,72 @@
+@font-face{
+    font-family: fontGame;
+    src:url(../../assets/img/img-game/Pony.ttf)
+}
+.bgGame{
+    /* lưu ý: link hình ảnh từ file css or scss thì link lại file này đến nơi chứa hình ảnh */
+    background-image: url(../../assets/img/gameOanTuTi/bgGame.png);
+    background-size: 100%;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;;
+    left: 0;
+
+    font-family: fontGame;
+}
+
+.title{
+    color: orange;
+    font-size: 40px;
+}
+
+.speech-bubble {
+	position: relative;
+	background: #45D994;
+	border-radius: .4em;
+	
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 35px solid transparent;
+	border-top-color: #45D994;
+	border-bottom: 0;
+	border-left: 0;
+	margin-left: -17.5px;
+	margin-bottom: -35px;
+}
+
+/* ket qua tro choi */
+.ketQuaTroChoi{
+    color: #7EE367;
+    font-size: 30px;
+}
+
+.ketQuaTroChoi span{
+    color: orange;
+}
+
+/* keo bua bao */
+.keoBuaBao{
+    background-color: white;
+    border: 5px solid  #7EE367;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.chonKeoBuaBao img{
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    cursor: pointer;
+
+}
