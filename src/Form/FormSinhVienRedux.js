@@ -1,27 +1,27 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-class FormSinhVien extends Component {
-  state = {
-    values: { maSinhVien: "", tenSinhVien: "", email: "", soDienThoai: "" },
-    error: {
-      maSinhVien: "",
-      tenSinhVien: "",
-      email: "",
-      soDienThoai: "",
-    },
-  };
+class FormSinhVienRedux extends Component {
+  //   state = {
+  //     values: { maSinhVien: "", tenSinhVien: "", email: "", soDienThoai: "" },
+  //     error: {
+  //       maSinhVien: "",
+  //       tenSinhVien: "",
+  //       email: "",
+  //       soDienThoai: "",
+  //     },
+  //   };
 
   handleChangeInput = (event) => {
     let { value, name } = event.target;
     let typeInput = event.target.getAttribute("typeInput"); //attribute la thuoc tinh nguoi dung tu them tren the
     console.log("tyoeIput", typeInput);
     // xu ly cap nhat values
-    const newValues = { ...this.state.values }; // luu tru lai cac gia tri truoc user da nhap
+    const newValues = { ...this.props.sinhVienRedux.values }; // luu tru lai cac gia tri truoc user da nhap
     newValues[name] = value; // gan gia tri moi cho thuoc tinh dang nhap
 
     //xu ly error
-    const newError = { ...this.state.error };
+    const newError = { ...this.props.sinhVienRedux.error };
     newError[name] = value.trim() === "" ? name + "Khong duoc bo trong !" : "";
     if (typeInput === "email") {
       const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -37,16 +37,24 @@ class FormSinhVien extends Component {
       }
     }
 
-    // setState lai
-    this.setState(
-      {
+    this.props.dispatch({
+      type: "SET_SV_REDUX",
+      sinhVienRedux: {
         values: newValues,
         error: newError,
       },
-      () => {
-        console.log("newValue", this.state);
-      }
-    );
+    });
+
+    // setState lai
+    // this.setState(
+    //   {
+    //     values: newValues,
+    //     error: newError,
+    //   },
+    //   () => {
+    //     console.log("newValue", this.props.sinhVienRedux);
+    //   }
+    // );
   };
 
   handleSubmit = (event) => {
@@ -55,16 +63,16 @@ class FormSinhVien extends Component {
     //kiem tra du lieu nguoi dung hop le moi cho submit
     let valid = true;
 
-    //kiem tra tat ca cac thuoc tinh trong this.state.values
-    for (let key in this.state.values) {
-      if (this.state.values[key].trim() === "") {
+    //kiem tra tat ca cac thuoc tinh trong this.props.sinhVienRedux.values
+    for (let key in this.props.sinhVienRedux.values) {
+      if (this.props.sinhVienRedux.values[key].trim() === "") {
         valid = false;
       }
     }
 
     // kiem tra tat cac thuoc tinh cua error phai khac rong
-    for (let key in this.state.error) {
-      if (this.state.error[key] !== "") {
+    for (let key in this.props.sinhVienRedux.error) {
+      if (this.props.sinhVienRedux.error[key] !== "") {
         valid = false;
       }
     }
@@ -77,20 +85,25 @@ class FormSinhVien extends Component {
     // xu li submit => api or redux (dispatch)
     this.props.dispatch({
       type: "THEM_SINH_VIEN",
-      sinhVien: this.state.values,
+      sinhVien: this.props.sinhVienRedux.values,
     });
   };
 
-  componentWillReceiveProps(newProps) {
-    // lay props tu redux gan vao state component
-    this.setState({
-      values: newProps.sinhVienSua,
-    });
+  //   componentWillReceiveProps(newProps) {
+  //     // lay props tu redux gan vao state component
+  //     this.setState({
+  //       values: newProps.sinhVienSua,
+  //     });
 
-    // sau do biding gia tri nay len giao dien tu state
-  }
+  //     // sau do biding gia tri nay len giao dien tu state
+  //   }
   render() {
-    let { maSinhVien, tenSinhVien, email, soDienThoai } = this.state.values;
+    let {
+      maSinhVien,
+      tenSinhVien,
+      email,
+      soDienThoai,
+    } = this.props.sinhVienRedux.values;
 
     return (
       <form className="card text-left" onSubmit={this.handleSubmit}>
@@ -109,7 +122,7 @@ class FormSinhVien extends Component {
                   value={maSinhVien}
                 ></input>
                 <p className="text text-danger">
-                  {this.state.error.maSinhVien}
+                  {this.props.sinhVienRedux.error.maSinhVien}
                 </p>
               </div>
               <div className="form-group">
@@ -121,7 +134,7 @@ class FormSinhVien extends Component {
                   value={tenSinhVien}
                 ></input>
                 <p className="text text-danger">
-                  {this.state.error.tenSinhVien}
+                  {this.props.sinhVienRedux.error.tenSinhVien}
                 </p>
               </div>
             </div>
@@ -135,7 +148,9 @@ class FormSinhVien extends Component {
                   onChange={this.handleChangeInput}
                   value={email}
                 ></input>
-                <p className="text text-danger">{this.state.error.email}</p>
+                <p className="text text-danger">
+                  {this.props.sinhVienRedux.error.email}
+                </p>
               </div>
 
               <div className="form-group">
@@ -148,7 +163,7 @@ class FormSinhVien extends Component {
                   value={soDienThoai}
                 ></input>
                 <p className="text text-danger">
-                  {this.state.error.soDienThoai}
+                  {this.props.sinhVienRedux.error.soDienThoai}
                 </p>
               </div>
             </div>
@@ -160,7 +175,15 @@ class FormSinhVien extends Component {
             Them sinh vien
           </button>
 
-          <button class="btn btn-primary" type="button" onClick={() => {}}>
+          <button
+            class="btn btn-primary"
+            type="button"
+            onClick={() => {
+              this.props.dispatch({
+                type: "CAP_NHAT_SINH_VIEN",
+              });
+            }}
+          >
             Cap nhat sinh vien
           </button>
         </div>
@@ -171,8 +194,8 @@ class FormSinhVien extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    sinhVienSua: state.QuanLySinhVienReducer.sinhVienSua,
+    sinhVienRedux: state.QuanLySinhVienReducer.sinhVienRedux,
   };
 };
 
-export default connect(mapStateToProps)(FormSinhVien);
+export default connect(mapStateToProps)(FormSinhVienRedux);
