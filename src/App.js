@@ -23,6 +23,8 @@ import GameOanTuTi from "./BaiTapRedux/GameOanTuTi/GameOanTuTi";
 import BaiTapQuanLySinhVien from "./Form/BaiTapQuanLySinhVien";
 import DatVeXemPhim from "./BaiTapRedux/DatVeXemPhim/DatVeXemPhim";
 import ReactLifeCycle from "./ReactLifeCycle/ReactLifeCycle";
+import DemoPure from "./ReactLifeCycle/Pure/DemoPure";
+import RequestAPI from "./RequestAPI/RequestAPI";
 
 function App() {
   return (
@@ -44,9 +46,11 @@ function App() {
       {/* <BaiTapGioHangRedux /> */}
       {/* <BaiTapGameXucXac /> */}
       {/* <GameOanTuTi /> */}
-      <BaiTapQuanLySinhVien />
+      {/* <BaiTapQuanLySinhVien /> */}
       {/* <DatVeXemPhim /> */}
       {/* <ReactLifeCycle /> */}
+      {/* <DemoPure /> */}
+      <RequestAPI />
     </div>
   );
 }
